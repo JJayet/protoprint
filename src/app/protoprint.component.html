@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <a class="navbar-brand" [routerLink]="['/']">Protoprint</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item" [class.active]="!isActive('client') && !isActive('admin')">
+        <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('admin')">
+        <a class="nav-link" [routerLink]="['/admin']">Admin <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('client')">
+        <a class="nav-link" [routerLink]="['/client']">Client <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
